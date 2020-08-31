@@ -12,27 +12,27 @@
         span {color: blue; font-size: 20px;}
     </style>
     <script>
-        function show() {
+        function show_Elvis() {
             document.getElementById("fig").src="ElvisPresley.png";
         }
-        function hide() {
+        function hide_Elvis() {
             document.getElementById("fig").src="";
         }
-        function appr() {
+        function show_LMT() {
             document.getElementById("lmt").src="Love Me Tender.jpg";
         }
-        function dsappr() {
+        function hide_LMT() {
             document.getElementById("lmt").src="";
         }
     </script>
 </head>
 <body>
-    <h3 onmouseover="show()" onmouseout="hide()">Elvis Presley</h3>
+    <h3 onmouseover="show_Elvis()" onmouseout="hide_Elvis()">Elvis Presley</h3>
     <hr>
     <div><img id="fig" scr=""></div>
     He was an American &#127908;singer and &#127916;actor. 
     In November 1956, he made his film debut in 
-    <span onmouseover="appr()" onmouseout="dsappr()">Love Me Tender</span>. 
+    <span onmouseover="show_LMT()" onmouseout="hide_LMT()">Love Me Tender</span>. 
     He is often referred to as "<span>The King of Rock and Roll</span>".&#129311;&#128512;
     <img id="lmt" scr="">
 </body>
