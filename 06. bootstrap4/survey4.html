@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소프트웨어 기술에 대한 설문조사</title>
+    <link type="text/css" rel="stylesheet" href="survey4.css">
+</head>
+<body>
+    <header>
+        <h3>설문지</h3>
+        <p>
+            소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
+        </p>
+    </header><br>
+    <section>
+        <form>
+        학년: <input type="radio" name="grade" value="1">1학년
+        <input type="radio" name="grade" value="2">2학년
+        <input type="radio" name="grade" value="3">3학년
+        <input type="radio" name="grade" value="4">4학년<br><br>
+        성별: <input type="radio" name="gender" value="1">남자
+        <input type="radio" name="gender" value="2">여자<br><br>
+        관심 분야: <input type="text" name="interest" list="field">
+        <datalist id="field">
+            <option value="1">모바일 소프트웨어</option>
+            <option value="2">컴퓨터 소프트웨어</option>
+            <option value="3">기타 소프트웨어</option>
+        </datalist><br><br>
+        진로: <input type="checkbox" name="job" value="1">개발
+        <input type="checkbox" name="job" value="2">기획
+        <input type="checkbox" name="job" value="3">영업
+        <input type="checkbox" name="job" value="4">창업<br><br>
+        남기고 싶은 말<br>
+        <textarea cols="50" rows="20" placeholder="글을 남겨주세요."></textarea>
+        </form>
+    <br>
+    </section>
+    <footer>
+        Copyright 2020
+    </footer>
+    
+</body>
+</html>
