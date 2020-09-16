@@ -10,35 +10,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<table>
-    <tr style="border-style: solid; border-width: 1px;">
-        <th style="border-style: solid; border-width: 1px;"><h2>Rounded Corners</h2></th>
-        <th style="border-style: solid; border-width: 1px;"><h2>Rounded Circle</h2></th>
-        <th style="border-style: solid; border-width: 1px;"><h2>Thumbnail</h2></th>
-    </tr>
-    <tr style="border-style: solid; border-width: 1px;">
-        <td style="border-style: solid; border-width: 1px;"><p>The .rounded class adds rounded corners to an image</p></td>
-        <td style="border-style: solid; border-width: 1px;"><p>The .rounded-circle class shapes the image to a circle:</p></td>
-        <td style="border-style: solid; border-width: 1px;"><p>The .img-thumbnail class creates a thumbnail of the image:</p></td>
-    </tr>
-    <tr style="border-style: solid; border-width: 1px;">
-        <td style="border-style: solid; border-width: 1px;">
-            <div class="container">
-                <img src="img/cinqueterre.jpg" class="rounded" alt="Cinque Terre" width="304" height="236">
-            </div>
-        </td>
-        <td style="border-style: solid; border-width: 1px;">
-            <div class="container">
-                <img src="img/cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236">
-            </div>
-        </td>
-        <td style="border-style: solid; border-width: 1px;">
-            <div class="container">
-                <img src="img/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
-            </div>
-        </td>
-    </tr>
-</table>
+
+<div class="container">
+  <h2>Rounded Corners</h2>
+  <p>The .rounded class adds rounded corners to an image:</p>            
+  <img src="img/cinqueterre.jpg" class="rounded" alt="Cinque Terre" width="304" height="236"> <br><br>
+  <h2>Circle</h2>
+  <p>The .rounded-circle class shapes the image to a circle:</p>            
+  <img src="img/cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236"><br><br> 
+  <h2>Thumbnail</h2>
+  <p>The .img-thumbnail class creates a thumbnail of the image:</p>            
+  <img src="img/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> <br><br>
+  <h2>Aligning images</h2>
+  <p>Use the float classes to float the image to the left or to the right:</p> 
+  <img src="img/paris.jpg" class="float-left" alt="Paris" width="304" height="236">
+  <img src="img/paris.jpg" class="float-right" alt="Paris" width="304" height="236">
+  <br><br><h2>Centered image</h2>
+  <p>Center an image by adding the utility classes .mx-auto (margin:auto) and .d-block (display:block) to the image:</p>
+  <img src="img/paris.jpg" class="mx-auto d-block" alt="Paris" width="304" height="236">
+</div>
 
 </body>
 </html>
