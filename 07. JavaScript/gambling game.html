@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Game</title>
+    <script>
+        let clickCount = 0;
+        let numbers = [];
+        let gameMoney = 10000;
+        let gameCount = 0;
+        function bttnclick(id) {                                               // 버튼 id를 눌렀을 때 실행할 동작
+            let nmbrng1 = document.getElementById(id);                         // 버튼 id의 문서 객체를 변수로 선언
+            let random = Math.floor(Math.random() * 3);                        // Math.random은 0이상 1미만의 실수 출력. 3을 곱해 0이상 3미만의 수를 무작위로 출력하고 Math.floor를 통해 정수화
+            nmbrng1.innerHTML = random;                                        // 무작위로 뽑아낸 값을 버튼 id 문서 객체에 입력하여 화면에 표시
+            clickCount++;                                                      // 모든 버튼을 누르면 게임 로직을 실행해야 하므로 필요
+            numbers.push(random);                                              // 뽑아낸 값을 서로 비교할 곳이 필요하므로 array에 삽입
+            if (clickCount === 3) {                                            // 조건: 모든 버튼을 누르면 시행
+                setTimeout(function() {
+                    playGame();
+                }, 2000);
+            }
+        }
+        function playGame() {                                                  // 모든 버튼을 눌렀을 때 실행할 동작
+            if (numbers[0] === numbers[1] && numbers[0] === numbers[2]) {
+                gameMoney += 8000;
+            } else {
+                gameMoney -= 1000;
+            }
+            gameCount++;
+            if (gameMoney === 0) {
+                alert('You lose! Reset game');
+                gameMoney = 10000;
+                gameCount = 0;
+            }
+            clickCount = 0;                                                    // 다음 회차 게임을 위한 초기화
+            numbers = [];
+
+            let moneyDOM = document.getElementById('money');                   // 각각의 문서 객체를 변수로 선언
+            let countDOM = document.getElementById('count');
+            let oneDOM = document.getElementById('first');
+            let twoDOM = document.getElementById('second');
+            let threeDOM = document.getElementById('third');
+            moneyDOM.innerHTML = gameMoney;                                    // 게임 결과에 따른 숫자의 변동 표시
+            countDOM.innerHTML = gameCount;
+            oneDOM.innerHTML = '?';                                            // 다음 회차 게임을 위한 초기화
+            twoDOM.innerHTML = '?';
+            threeDOM.innerHTML = '?';
+        }
+    </script>
+</head>
+<body>
+    <h2>갬블링 게임</h2>
+    <hr>
+    <p>보유 금액: <span id="money">10000</span>원,&nbsp;
+    게임 횟수: <span id="count">0</span>회</p><br>
+    <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('first');" id="first">?</button>&nbsp;
+    <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('second')" id="second">?</button>&nbsp;
+    <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('third')" id="third">?</button>
+    <p id="gameover"></p>
+</body>
+</html>
