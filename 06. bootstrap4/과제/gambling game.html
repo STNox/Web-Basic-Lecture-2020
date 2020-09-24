@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gambling Game</title>
+    <script>
+        let clickCount = 0;
+        let numbers = [];
+        let gameMoney = 10000;
+        let gameCount = 0;
+        function bttnclick(id) {
+            let nmbrng1 = document.getElementById(id);
+            let random = Math.floor(Math.random() * 3);
+            nmbrng1.innerHTML = random;
+            clickCount++;
+            numbers.push(random);
+            if (clickCount === 3) {
+                setTimeout(function() {
+                    playGame();
+                }, 1000);
+            }
+        }
+        function playGame() {
+            if (numbers[0] === numbers[1] && numbers[0] === numbers[2]) {
+                gameMoney += 8000;
+            } else {
+                gameMoney -= 1000;
+            }
+            gameCount++;
+            if (gameMoney === 0) {
+                alert('You lose! Reset game');
+                gameMoney = 10000;
+                gameCount = 0;
+            }
+            clickCount = 0;
+            numbers = [];
+
+            let moneyDOM = document.getElementById('money');
+            let countDOM = document.getElementById('count');
+            let oneDOM = document.getElementById('first');
+            let twoDOM = document.getElementById('second');
+            let threeDOM = document.getElementById('third');
+            moneyDOM.innerHTML = gameMoney;
+            countDOM.innerHTML = gameCount;
+            oneDOM.innerHTML = '?';
+            twoDOM.innerHTML = '?';
+            threeDOM.innerHTML = '?';
+        }
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,7 +87,7 @@
                       <a id="li_iPhone" class="nav-link" href="iPhone.html">아이폰</a>
                     </li>
                     <li class="nav-item">
-                      <a id="li_sample" class="nav-link disabled active" href="sample.html">샘플</a>
+                      <a id="li_sample" class="nav-link" href="sample.html">샘플</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="li_2020phones" class="nav-link dropdown-toggle" data-toggle="dropdown" href="2020phones.html">2020년 출시</a>
@@ -55,45 +99,21 @@
                           </div>
                     </li>
                     <li class="nav-item">
-                        <a id="li_game" class="nav-link" href="gambling game.html">게임</a>
+                        <a id="li_game" class="nav-link disabled active" href="gambling game.html">게임</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-10" style="margin-top: 40px;">
-                <h2 id="sample"><a href="#li_sample" style="text-decoration: none; color: black;">샘플</a></h2>
+            <div class="col-10" style="margin-top: 40px; text-align: center;">
+                <h2 id="game"><a href="#li_game" style="text-align: initial; text-decoration: none; color: black;">갬블링 게임</a></h2>
                 <hr>
-                <table class="table table-borderless">
-                    <caption style="text-align: center;"><small>스마트폰샘플</small></caption>
-                    <tbody>
-                        <tr>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/스마트폰1.jpg" width="200">
-                            </td>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/스마트폰2.jpg" width="200">
-                            </td>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/스마트폰3.jpg" width="200">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/스마트폰4.jpg" width="200">
-                            </td>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/스마트폰5.jpg" width="200">
-                            </td>
-                            <td class="align-middle" style="width: 150px; height: 150px; text-align: center;">
-                                <img src="media/iphone se.jpg" width="200">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p>보유 금액: <span style="color: green; font-weight: bold;" id="money">10000</span>원,&nbsp;
+                게임 횟수: <span style="color:blue; font-weight: bold;" id="count">0</span>회</p><br>
+                <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('first');" id="first">?</button>&nbsp;
+                <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('second')" id="second">?</button>&nbsp;
+                <button style="width: 100px; height: 100px; font-size: 40px;" onclick="bttnclick('third')" id="third">?</button>
             </div>
         </div>
-        <nav class="navbar navbar-expand-sm bg-light justify-content-center navbar-light fixed-bottom">
-            <span class="navbar-text">Copyright &copy; 2020, Wy</span>
-        </nav>
     </div>
 </body>
+
 </html>
