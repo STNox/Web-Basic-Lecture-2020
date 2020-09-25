@@ -9,7 +9,10 @@
         let clickCounts = 0;
         function bttnclick(id) {
             let apprNum = document.getElementById(id);
-            apprNum = 
+            let random = Math.floor(Math.random * 45 + 1);
+            apprNum.innerHTML = random;
+            clickCounts++;
+            numbers.push(random);
         }
     </script>
 </head>
